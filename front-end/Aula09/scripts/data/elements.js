@@ -1,0 +1,38 @@
+export const elements = {
+  agua: {
+    nome: "Agua",
+    logo: "./assets/agua.png",
+    fraqueza: "Terra",
+    forca: 30,
+    vida: 100,
+    defesa: 40,
+    velocidade: 70,
+  },
+  fogo: {
+    nome: "Fogo",
+    logo: "./assets/fogo.png",
+    fraqueza: "Agua",
+    forca: 50,
+    vida: 90,
+    defesa: 50,
+    velocidade: 60,
+  },
+  terra: {
+    nome: "Terra",
+    logo: "./assets/terra.png",
+    fraqueza: "Ar",
+    forca: 40,
+    vida: 80,
+    defesa: 60,
+    velocidade: 50,
+  },
+  ar: {
+    nome: "Ar",
+    logo: "./assets/ar.png",
+    fraqueza: "Fogo",
+    forca: 30,
+    vida: 80,
+    defesa: 40,
+    velocidade: 80,
+  },
+};
