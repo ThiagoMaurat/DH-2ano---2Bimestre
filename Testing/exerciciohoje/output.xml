@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.1 (Python 3.10.8 on win32)" generated="20221123 20:14:51.668" rpa="false" schemaversion="3">
+<suite id="s1" name="Poke" source="D:\dh\DH-2ano---2Bimestre\Testing\exerciciohoje\poke.robot">
+<test id="s1-t1" name="Validação da PokeAPI" line="7">
+<kw name="Consulta de Pokemons" library="poke">
+<kw name="Verificar cor" library="poke">
+<arg>NUMBER</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>pokeAPI</arg>
+<arg>${HOST}${NUMBER}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20221123 20:14:51.991" level="INFO">Creating Session using : alias=pokeAPI, url=https://pokeapi.co/api/v2/pokemon-color/NUMBER, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221123 20:14:51.990" endtime="20221123 20:14:51.991"/>
+</kw>
+<kw name="GET On Session" library="RequestsLibrary">
+<var>${RESPOSTA}</var>
+<arg>pokeAPI</arg>
+<arg>${HOST}${NUMBER}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<msg timestamp="20221123 20:14:52.074" level="INFO">GET Request : url=https://pokeapi.co/api/v2/pokemon-color/NUMBER 
+ path_url=/api/v2/pokemon-color/NUMBER 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20221123 20:14:52.074" level="INFO">GET Response : url=https://pokeapi.co/api/v2/pokemon-color/NUMBER 
+ status=404, reason=Not Found 
+ headers={'Date': 'Wed, 23 Nov 2022 23:14:54 GMT', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '9', 'Connection': 'keep-alive', 'access-control-allow-origin': '*', 'Cache-Control': 'public, max-age=3600, s-maxage=3600', 'etag': 'W/"9-0gXL1ngzMqISxa6S1zx3F4wtLyg"', 'function-execution-id': 'shqrxwx6bpxi', 'x-cloud-trace-context': '4ab43f74c13e82e04f592cbc453e1597', 'x-powered-by': 'Express', 'x-served-by': 'cache-gig2250021-GIG', 'x-cache': 'MISS', 'x-cache-hits': '0', 'x-timer': 'S1669245192.587396,VS0,VE2116', 'vary': 'Accept-Encoding, x-fh-requested-host, accept-encoding', 'alt-svc': 'h3=":443"; ma=86400, h3-29=":443"; ma=86400', 'CF-Cache-Status': 'HIT', 'Age': '101', 'Server-Timing': 'cf-q-config;dur=5.9999983932357e-06', 'Report-To': '{"endpoints":[{"url":"https:\\/\\/a.nel.cloudflare.com\\/report\\/v3?s=7Qzr6oRveRCiW6DIMgc79ok6JDf7eWykNuxXhJ8n2Eu9Ibh5F0qk%2BIT58tRwRHQ11OfInyDdCx58xx%2F%2FTWal0dx2zHQ1jMgVQp94hznsXUHBs1upEFZZMfORDnqTHuX%2Fj3uFBN4DaMmH"}],"group":"cf-nel","max_age":604800}', 'NEL': '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}', 'Server': 'cloudflare', 'CF-RAY': '76ed9a9209792628-GIG'} 
+ body=Not Found 
+ </msg>
+<msg timestamp="20221123 20:14:52.075" level="INFO">C:\Users\thiag\AppData\Local\Programs\Python\Python310\lib\site-packages\urllib3\connectionpool.py:1045: InsecureRequestWarning: Unverified HTTPS request is being made to host 'pokeapi.co'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/1.26.x/advanced-usage.html#ssl-warnings
+  warnings.warn(</msg>
+<msg timestamp="20221123 20:14:52.076" level="FAIL">HTTPError: 404 Client Error: Not Found for url: https://pokeapi.co/api/v2/pokemon-color/NUMBER</msg>
+<status status="FAIL" starttime="20221123 20:14:51.992" endtime="20221123 20:14:52.077"/>
+</kw>
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${RESPOSTA}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" starttime="20221123 20:14:52.078" endtime="20221123 20:14:52.078"/>
+</kw>
+<kw name="Dictionary Should Contain Item" library="Collections">
+<arg>${RESPOSTA.json()}</arg>
+<arg>name</arg>
+<arg>${NUMBER}</arg>
+<doc>An item of ``key`` / ``value`` must be found in a ``dictionary``.</doc>
+<status status="NOT RUN" starttime="20221123 20:14:52.078" endtime="20221123 20:14:52.078"/>
+</kw>
+<status status="FAIL" starttime="20221123 20:14:51.989" endtime="20221123 20:14:52.078"/>
+</kw>
+<kw name="Conferir Status Code" library="poke">
+<arg>200</arg>
+<status status="NOT RUN" starttime="20221123 20:14:52.078" endtime="20221123 20:14:52.078"/>
+</kw>
+<status status="FAIL" starttime="20221123 20:14:51.989" endtime="20221123 20:14:52.079"/>
+</kw>
+<status status="FAIL" starttime="20221123 20:14:51.988" endtime="20221123 20:14:52.079">HTTPError: 404 Client Error: Not Found for url: https://pokeapi.co/api/v2/pokemon-color/NUMBER</status>
+</test>
+<status status="FAIL" starttime="20221123 20:14:51.672" endtime="20221123 20:14:52.081"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Poke">Poke</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
